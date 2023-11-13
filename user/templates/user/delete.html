@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="profile-manage" style="min-height: 100vh;" class="container-fluid bg-black d-flex flex-column justify-content-center align-items-center text-white">
+
+    <div id="manage" class="d-flex flex-column justify-content-center align-items-center w-100">
+
+        <hr>
+        <h2 class="fs-1 text-center w-25">Delete Profile: {{ profile.name|title }}</h2>
+        <form method="POST" class="w-25">
+            {% csrf_token %}
+
+            <input type="submit" value="Delete" class="btn btn-danger w-100">
+        </form>
+        <a href="{% url "profiles_page" %}" class="btn btn-secondary w-25 mt-3">Go back to Profiles!</a>
+        <hr>
+    </div>
+
+</div>
+
+{% endblock content %}

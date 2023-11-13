@@ -1,0 +1,59 @@
+{% load static %}
+<header class="position-relative">
+    <nav >
+        <div class="container d-flex justify-content-between align-items-center px-5">
+            <a href="{% url "index_page" %}">
+                <img src="{% static "img/netflix_logo.png" %}" class="resim" alt="">
+            </a>
+           {% if request.path == '/' %}
+            <div class="d-flex gap-2 position-relative">
+
+                <select class="select-icin bg-transparent text-white text-end border border-1 rounded-2 fs-5">
+                    <option value="">Türkçe</option>
+                    <option value="">İngilizce</option>
+                </select>
+
+                <i class="fa-solid fa-globe position-absolute"></i>
+
+                    <a href="{% url "login_page" %}">
+                        <button class="btn btn-danger button-ıcın">Oturum Aç</button>
+                    </a>
+            </div>
+           {% endif %}
+        </div>
+    </nav>
+    {% if request.path == '/' %}
+        <div class="position-absolute ortala d-flex flex-column justify-content-center align-items-center text-white text-center">
+            <h1>Âlâsı var!</h1>
+            <p class="fs-4">En iyi dizi, film, belgesel ve çok daha fazlası burada.</p>
+            <p class="fs-5">İzlemeye hazır mısınız? Üye olmak ya da hesabınıza tekrar ulaşmak için tek yapmanız gereken e-posta adresinizi girmek.</p>
+            <div class="d-flex gap-2">
+                <input type="text" id="e-mail" class="p-3 for-inp bg-transparent border border-1 border-secondary rounded-2" placeholder="E-posta adresi">
+                <button class="btn btn-danger fs-4 fw-bold">Başlayın ></button>
+            </div>
+        </div>
+    {% else %}
+        <div class="container d-flex justify-content-center align-items-center text-white">
+            <div class="bg-black w-25 bg-opacity-75 p-4" style="height: 450px;">
+                <h3>Oturum Aç</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+
+
+                    {% if request.path == '/user/register/' %}
+                        <input type="submit" value="Kayıt Ol" class="btn btn-danger w-100 mt-3">
+                    {% else %}
+                        <input type="submit" value="Oturum Aç" class="btn btn-danger w-100 mt-3">
+                    {% endif %}
+                </form>
+                {% if request.path == '/user/register/' %}
+                    <a href="{% url "login_page" %}" class="btn mt-2 w-100" style="background-color: darkorange;">Giriş Yap</a>
+                {% else %}
+                    <a class="btn mt-2 w-100" style="background-color: darkorange;" href="{% url "register_page" %}">Kayıt Ol</a>
+                {% endif %}
+
+            </div>
+        </div>
+    {% endif %}
+</header>

@@ -1,0 +1,46 @@
+{% if request.path == '/user/browse/' %}
+    <h1>Who's watching?</h1>
+{% else %}
+    <h1>Profile Manage:</h1>
+{% endif %}
+
+    <div class="d-flex gap-3 mt-4">
+
+    {% for profile in profiles %}
+        {% if request.path == '/user/browse/' %}
+            <div class="profiles rounded-3">
+                <a href="" class="text-decoration-none text-center">
+                    <img src="{{ profile.image.url }}" class="w-100 rounded-1" alt="">
+                    <p class="fs-4 mt-2">{{ profile.name }}</p>
+                </a>
+            </div>
+        {% else %}
+            <div class="profiles rounded-3">
+                <a href="{% url "profile_edit_page" profile.slug %}" class="text-decoration-none text-center">
+                    <img src="{{ profile.image.url }}" class="w-100 rounded-1" alt="">
+                    <p class="fs-4 mt-2">{{ profile.name }}</p>
+                
+                    <div id="pencil" class="w-100 h-100 bg-dark d-flex justify-content-center align-items-center bg-opacity-75">
+                        <i class="fa-solid fa-pencil"></i>
+                    </div>
+                </a>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <div class="add-profile text-center">
+        <div class="profiles d-flex flex-column justify-content-center align-items-center rounded-3">
+            <a href="{% url "profile_add_page" %}" class="text-decoration-none text-center">
+                <i class="fa-solid fa-circle-plus"></i>
+            </a>
+        </div>
+        <p class="fs-4 mt-2">Add Profile</p>
+    </div>
+</div>
+{% if request.path == '/user/browse/' %}
+<a class="btn btn-outline-light mt-4 rounded-0" href="{% url "profile_manage_page" %}">Manage Profiles</a>
+
+{% else %}
+<a class="btn btn-outline-light mt-4 rounded-0" href="{% url "profiles_page" %}">Okay</a>
+
+{% endif %}

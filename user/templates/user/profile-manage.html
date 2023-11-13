@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div style="min-height: 100vh;" class="container-fluid bg-black d-flex flex-column justify-content-center align-items-center text-white" id="profile-manage">
+
+    <div id="manage" class="d-flex flex-column justify-content-center align-items-center">
+        {% include "components/_profile-card.html" %}
+    </div>
+
+</div>
+
+{% endblock content %}
