@@ -9,7 +9,7 @@
     {% for profile in profiles %}
         {% if request.path == '/user/browse/' %}
             <div class="profiles rounded-3">
-                <a href="" class="text-decoration-none text-center">
+                <a href="{% url "movies_page" profile.slug %}" class="text-decoration-none text-center">
                     <img src="{{ profile.image.url }}" class="w-100 rounded-1" alt="">
                     <p class="fs-4 mt-2">{{ profile.name }}</p>
                 </a>
