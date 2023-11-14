@@ -5,3 +5,6 @@ def index_view(request):
     
 
     return render(request, 'movie/index.html', {})
+
+def movies_view(request, profile_slug):
+    pass
