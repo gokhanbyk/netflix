@@ -20,3 +20,12 @@ def movies_view(request, profile_slug):
         'profile': profile,
         'movies': movies,
     })
+
+@login_required(login_url="/user/login/")
+def movie_video_view(request, movie_slug):
+
+    movie = Movies.objects.get(slug = movie_slug)
+
+    return render(request, 'movie/video.html', {
+        'movie': movie
+    })

@@ -4,9 +4,9 @@
 
 {% include "components/_navbar.html" %}
 
-<div style="min-height: 200vh;" class="bg-dark">
+<div style="min-height: 200vh;" class="bg-dark p-3">
+    <h4 class="text-white ms-5 my-0">Gündemdekiler</h4>
     <div class="container d-flex gap-3">
-
     {% for movie in movies %}
         
         {% include "components/_movie-card.html" %}

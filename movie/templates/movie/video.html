@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="bg-black" style="min-width: 100%; min-height: 100vh;">
+    <video style="width: 100%; height: 660px;" controls src="{{ movie.video.url }}"></video>
+</div>
+
+{% endblock content %}
