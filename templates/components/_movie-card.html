@@ -1,0 +1,43 @@
+<div id="movie-card" class="mt-5 rounded-2">
+    <img src="{{ movie.image.url }}" class="w-100 h-100 rounded-1" alt="">
+
+    <div id="movie-hover" class="bg-black bg-opacity-50 rounded-2">
+        <a href="">
+            <video class="w-100 rounded-2" autoplay muted loop src="{{ movie.video.url }}"></video>
+        </a>
+
+        <div class="bilgiler p-3">
+            <h5 class="text-white">{{ movie.name }}</h5>
+            <div id="fontlar" class="d-flex justify-content-between">
+               <div class="soldakiler d-flex gap-3">
+                    <a href="">
+                        <i class="fa-solid fa-circle-play fs-2"></i>
+                    </a>    
+                    <a href="">
+                        <i class="fa-solid fa-circle-plus fs-2"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-solid fa-thumbs-up fs-2"></i>
+                    </a>
+               </div>
+               <a href="">
+                    <i class="fa-solid fa-circle-arrow-down fs-2"></i>
+               </a>
+            </div>
+    
+            <hr class="w-100">
+    
+            <h6 class="text-white">{{ movie.category }}</h6>
+    
+            <div class="genreler d-flex gap-2">
+                {% for genre in movie.genre.all %}
+                    <p class="text-white">● {{ genre.name }}</p>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

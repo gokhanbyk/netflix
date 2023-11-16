@@ -214,3 +214,31 @@ hr {
 .navbar .dropdown-menu-end .dropdown-item:hover {
     color: black !important;
 }
+
+#movie-card {
+    width: 250px;
+    height: 160px;
+    transition: all 1s;
+}
+
+#movie-card #movie-hover {
+    display: none;
+
+}
+
+#movie-card:hover {
+    width: 300px;
+    height: 200px;
+}
+
+#movie-card:hover img {
+    display: none;
+}
+
+#movie-card:hover #movie-hover {
+    display: block;
+}
+
+#fontlar a {
+    text-decoration: none;
+}

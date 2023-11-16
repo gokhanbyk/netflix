@@ -71,7 +71,7 @@ def logout_view(request):
     return redirect('index_page')
 
 
-@login_required(login_url="/login/")
+@login_required(login_url="/user/login/")
 def profiles_view(request):
 
     profiles = Profile.objects.filter(owner = request.user)
@@ -82,7 +82,7 @@ def profiles_view(request):
     })
 
 
-@login_required(login_url="/login/")
+@login_required(login_url="/user/login/")
 def profile_add_view(request):
 
     if request.method == 'POST':
@@ -103,7 +103,7 @@ def profile_add_view(request):
         'form': form
     })
 
-@login_required(login_url="/login/")
+@login_required(login_url="/user/login/")
 def profile_manage_view(request):
 
     profiles = Profile.objects.filter(owner = request.user)
@@ -114,7 +114,7 @@ def profile_manage_view(request):
     })
 
 
-@login_required(login_url="/login/")
+@login_required(login_url="/user/login/")
 def profile_edit_view(request, profile_slug): 
     
     profile = Profile.objects.get(slug = profile_slug)
@@ -141,7 +141,7 @@ def profile_edit_view(request, profile_slug):
 
 
 
-@login_required(login_url="/login/")
+@login_required(login_url="/user/login/")
 def profile_delete_view(request, profile_slug):
 
     profile = Profile.objects.get(slug = profile_slug)
