@@ -15,10 +15,35 @@ def movies_view(request, profile_slug):
     
     profile = Profile.objects.get(slug = profile_slug)
     movies = Movies.objects.all()
+    categories = Category.objects.all()
+    genres = Genre.objects.all()
+
+    profiles = request.user.profile_set.all()
+
+    if 'q' in request.GET and request.GET.get('q'):
+        q = request.GET.get('q')
+        turler = Genre.objects.filter(name__contains = q)
+        kategoriler = Category.objects.filter(name__contains = q)
+
+        print(turler)
+
+        filmler = Movies.objects.filter(name__contains = q) or Movies.objects.filter(genre__in = turler) or Movies.objects.filter(category__in = kategoriler)
+
+        
+        return render(request, 'movie/movies.html', {
+            'categories': categories,
+            'genres': genres,
+            'profiles': profiles,
+            'profile': profile,
+            'filmler': filmler
+        })
 
     return render(request, 'movie/movies.html', {
         'profile': profile,
         'movies': movies,
+        'categories': categories,
+        'genres': genres,
+        'profiles': profiles,
     })
 
 @login_required(login_url="/user/login/")
@@ -29,3 +54,49 @@ def movie_video_view(request, movie_slug):
     return render(request, 'movie/video.html', {
         'movie': movie
     })
+
+
+def movies_type_view(request, profile_slug,slug):
+
+    movies_category = Movies.objects.filter(category__slug = slug)
+    movies_genre = Movies.objects.filter(genre__slug = slug)
+
+    categories = Category.objects.all()
+    genres = Genre.objects.all()
+
+    profile = Profile.objects.get(slug = profile_slug)
+
+    profiles = request.user.profile_set.all()
+
+    return render(request, 'movie/movies.html', {
+        'movies_category': movies_category,
+        'movies_genre': movies_genre,
+        'categories': categories,
+        'genres': genres,
+        'profiles': profiles,
+        'profile': profile,
+    })
+
+# def movies_search_view(request, profile_slug):
+#     categories = Category.objects.all()
+#     genres = Genre.objects.all()
+#     profile = Profile.objects.get(slug = profile_slug)
+#     profiles = request.user.profile_set.all()
+
+#     if 'q' in request.GET and request.GET.get('q'):
+#         q = request.GET.get('q')
+#         turler = Genre.objects.filter(name__contains = q)
+#         kategoriler = Category.objects.filter(name__contains = q)
+
+#         print(turler)
+
+#         filmler = Movies.objects.filter(name__contains = q) or Movies.objects.filter(genre__in = turler) or Movies.objects.filter(category__in = kategoriler)
+
+        
+#         return render(request, 'movie/movies.html', {
+#             'categories': categories,
+#             'genres': genres,
+#             'profiles': profiles,
+#             'profile': profile,
+#             'filmler': filmler
+#         })

@@ -7,11 +7,41 @@
 <div style="min-height: 200vh;" class="bg-dark p-3">
     <h4 class="text-white ms-5 my-0">Gündemdekiler</h4>
     <div class="container d-flex gap-3">
-    {% for movie in movies %}
-        
-        {% include "components/_movie-card.html" %}
+
+    {% if movies %}
     
-    {% endfor %}
+        {% for movie in movies %}
+            
+            {% include "components/_movie-card.html" %}
+        
+        {% endfor %}
+    {% elif movies_category %}
+    
+        {% for movie in movies_category %}
+            
+            {% include "components/_movie-card.html" %}
+
+        {% endfor %}
+
+    {% elif movies_genre %}
+
+        {% for movie in movies_genre %}
+            
+            {% include "components/_movie-card.html" %}
+
+        {% endfor %}
+
+    {% elif filmler %}
+
+        {% for movie in filmler %}
+                
+            {% include "components/_movie-card.html" %}
+
+        {% endfor %}
+
+    {% endif %}
+    
+    
 
     </div>
 </div>

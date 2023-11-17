@@ -215,6 +215,14 @@ hr {
     color: black !important;
 }
 
+.navbar .dropdown-menu .dropdown-item {
+    color: white !important;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    color: black !important;
+}
+
 #movie-card {
     width: 250px;
     height: 160px;
