@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import *
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
 from .models import *
 
 # Create your views here.
@@ -153,3 +153,24 @@ def profile_delete_view(request, profile_slug):
         return render(request, 'user/delete.html', {
             'profile': profile
         })
+    
+
+@login_required(login_url="/user/login/")
+def change_password_view(request, user_username):
+
+    if request.method == 'POST':
+        form = ChangeUserPassword(request.user, request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            return redirect('profiles_page')
+        else:
+            return render(request, 'user/change_password.html', {
+                'form': form
+            })
+    
+    form = ChangeUserPassword(request.user)
+    return render(request, 'user/change_password.html', {
+        'form': form
+    })

@@ -7,7 +7,7 @@ class Profile(models.Model):
     name = models.CharField(max_length= 30)
     image = models.FileField(upload_to='profile_pic')
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    slug = AutoSlugField(populate_from = 'name', null=True)
+    slug = AutoSlugField(populate_from = 'name', unique=True, null=True)
 
     def __str__(self):
         return self.name

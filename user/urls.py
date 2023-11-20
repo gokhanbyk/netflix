@@ -10,4 +10,5 @@ urlpatterns = [
     path('browse/manage/', profile_manage_view, name="profile_manage_page"),
     path('profile-edit/<slug:profile_slug>/', profile_edit_view, name="profile_edit_page"),
     path('profile-delete/<slug:profile_slug>/', profile_delete_view, name="profile_delete_page"),
+    path('change-password/<str:user_username>', change_password_view, name='change_password_view'),
 ]

@@ -47,3 +47,11 @@ class UserProfileForm(forms.ModelForm):
 
         self.fields['image'].widget = widgets.FileInput(attrs={'class': 'form-control'})
         self.fields['name'].widget = widgets.TextInput(attrs={'class': 'form-control'})
+
+
+class ChangeUserPassword(PasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['old_password'].widget = widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Old Password'})
+        self.fields['new_password1'].widget = widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'New Password'})
+        self.fields['new_password2'].widget = widgets.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'New Password Confirmation'})

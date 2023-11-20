@@ -56,7 +56,7 @@
                 </a>
               </li>
               {% endfor %}
-              <li><a class="dropdown-item text-white" href="#">Settings</a></li>
+              <li><a class="dropdown-item text-white" href="{% url "change_password_view" request.user.username %}">Change Password</a></li>
               <li><hr class="dropdown-divider w-100"></li>
               <li><a class="dropdown-item text-white" href="{% url "logout_page" %}">Sign out</a></li>
             </ul>
