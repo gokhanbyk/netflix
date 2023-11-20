@@ -24,6 +24,7 @@ class Movies(models.Model):
     image = models.FileField(upload_to='movie_pic')
     slug = AutoSlugField(populate_from = 'name')
     video = models.FileField(upload_to='movie_video')
+    view_count = models.IntegerField(default=0)
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     genre = models.ManyToManyField(Genre)

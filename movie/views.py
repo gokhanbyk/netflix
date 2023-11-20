@@ -20,6 +20,9 @@ def movies_view(request, profile_slug):
 
     profiles = request.user.profile_set.all()
 
+    # ! İzlenme Sırasına Göre film gösterme
+    top_movies = Movies.objects.all().order_by('-view_count')
+
     if 'q' in request.GET and request.GET.get('q'):
         q = request.GET.get('q')
         turler = Genre.objects.filter(name__contains = q)
@@ -35,7 +38,8 @@ def movies_view(request, profile_slug):
             'genres': genres,
             'profiles': profiles,
             'profile': profile,
-            'filmler': filmler
+            'filmler': filmler,
+            'top_movies': top_movies
         })
 
     return render(request, 'movie/movies.html', {
@@ -44,12 +48,15 @@ def movies_view(request, profile_slug):
         'categories': categories,
         'genres': genres,
         'profiles': profiles,
+        'top_movies': top_movies
     })
 
 @login_required(login_url="/user/login/")
 def movie_video_view(request, movie_slug):
 
     movie = Movies.objects.get(slug = movie_slug)
+    movie.view_count += 1
+    movie.save()
 
     return render(request, 'movie/video.html', {
         'movie': movie

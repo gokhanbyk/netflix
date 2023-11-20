@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Vina+Sans&display=swap');
 
 * {
     margin: 0;
@@ -229,9 +229,38 @@ hr {
     transition: all 1s;
 }
 
-#movie-card #movie-hover {
-    display: none;
+#top-movie-card {
+    width: 150px;
+    height: 200px;
+    transition: all 1s;
+    cursor: pointer;
+}
 
+#top-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#top-image p {
+    font-family: 'Vina Sans', sans-serif !important;
+    font-size: 250px !important;
+    -webkit-text-stroke: 1px white;
+    position: absolute;
+    top: -50%;
+    left: -55%;
+    z-index: 0;
+}
+
+#top-image img {
+    object-fit: cover;
+    object-position: left;
+    z-index: 1;
+}
+
+#movie-card #movie-hover,
+#top-movie-card #movie-hover {
+    display: none;
 }
 
 #movie-card:hover {

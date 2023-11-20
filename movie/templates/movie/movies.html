@@ -40,10 +40,27 @@
         {% endfor %}
 
     {% endif %}
-    
-    
 
     </div>
+
+    <div class="mt-5">
+        <h4 class="text-white ms-5 my-0">En Çok İzlenenler</h4>
+        <div class="container d-flex gap-3">
+    
+            {% for movie in top_movies %}
+            
+                {% include "components/_top-movies.html" %}
+    
+            {% endfor %}
+    
+        </div>
+    
+    </div>
+
+
 </div>
+
+
+
 
 {% endblock content %}
