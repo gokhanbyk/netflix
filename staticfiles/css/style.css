@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Vina+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), url(../img/arkaplan.jpg);
+    height: 700px;
+}
+
+.select-icin {
+    width: 126px;
+    height: 32px;
+
+}
+
+.button-ıcın {
+    height: 32px !important;
+    padding: 0px 10px !important;
+}
+
+div .fa-solid {
+    color: white;
+    font-size: 20px;
+    left: 5%;
+    top: 15%;
+}
+
+footer .fa-solid {
+    color: white;
+    font-size: 20px;
+    left: 1%;
+    top: 15%;
+}
+
+.ortala {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ortala h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.deneme {
+    height: 56px !important;
+}
+
+.for-inp {
+    width: 412px;
+}
+
+.cizgi {
+    width: 100%;
+    border: 4px solid rgb(50, 50, 50);
+}
+
+.baslik {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.content {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.acil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    width: 100%;
+    background-color: #303030;
+    border: 1px solid black;
+    height: 84px;
+    color: white;
+    padding: 0px 20px;
+}
+
+.acil i {
+    font-size: 30px;
+}
+
+.acilmis {
+    font-size: 25px;
+    background-color: #303030;
+    border: 1px solid black;
+    color: white;
+    padding: 20px 20px;
+    display: none;
+}
+
+.goster {
+    display: block;
+}
+
+.dondur {
+    transform: rotate(45deg);
+}
+
+footer a {
+    color: white;
+    margin: 5px 0px;
+}
+
+.profiles {
+    width: 175px !important;
+    height: 175px !important;
+    border: 3px solid black;
+    position: relative;
+}
+
+.profiles #pencil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.profiles #pencil i {
+    font-size: 40px !important;
+}
+
+.profiles a img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+.profiles a {
+    color: gray;
+
+}
+
+.profiles:hover {
+    border: 3px outset white;
+}
+
+.profiles:hover a {
+    color: white;
+}
+
+.profiles i {
+    font-size: 100px;
+}
+
+.add-profile p {
+    color: gray !important;
+    cursor: pointer;
+    font-size: 23px !important;
+}
+
+.add-profile {
+    cursor: pointer;
+}
+
+.add-profile:hover p {
+    color: white !important;
+}
+
+.add-profile:hover .profiles {
+    background-color: white !important;
+    border: none;
+}
+
+.add-profile:hover .profiles i {
+    color: gray !important;
+}
+
+hr {
+    border: 1px solid white !important;
+    width: 27%;
+}
+
+#profile-manage #manage {
+    opacity: 0;
+    animation: fade .3s linear 1 forwards;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.navbar {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)) !important;
+}
+
+#movie-header {
+    background-image: url(../img/movie-header.webp);
+    height: 650px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.navbar form input::placeholder {
+    color: white;
+}
+
+.navbar .dropdown-menu-end .dropdown-item:hover {
+    color: black !important;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    color: white !important;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    color: black !important;
+}
+
+#movie-card {
+    width: 250px;
+    height: 160px;
+    transition: all 1s;
+}
+
+#top-movie-card {
+    width: 150px;
+    height: 200px;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+#top-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#top-image p {
+    font-family: 'Vina Sans', sans-serif !important;
+    font-size: 250px !important;
+    -webkit-text-stroke: 1px white;
+    position: absolute;
+    top: -50%;
+    left: -55%;
+    z-index: 0;
+}
+
+#top-image img {
+    object-fit: cover;
+    object-position: left;
+    z-index: 1;
+}
+
+#movie-card #movie-hover,
+#top-movie-card #movie-hover {
+    display: none;
+}
+
+#movie-card:hover {
+    width: 300px;
+    height: 200px;
+}
+
+#movie-card:hover img {
+    display: none;
+}
+
+#movie-card:hover #movie-hover {
+    display: block;
+}
+
+#fontlar a {
+    text-decoration: none;
+}
