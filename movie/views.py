@@ -4,6 +4,12 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 
 # Create your views here.
+# ! Custom 404 Sayfası için
+def Page_404(request, exception):
+
+    return render(request, '404/404_Page.html', {})
+# ! Custom 404 Sayfası için
+
 def index_view(request):
     if request.user.is_authenticated:
         return redirect('profiles_page')
